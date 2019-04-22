@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #con {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            line-height: 600px;
+            text-align: center;
+            color: #ff0000;
+            background-color: #ffff00;
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+<div id="con">
+</div>
+<script>
+    let num = 1
+    let con = document.getElementById('con')
+
+    function count() {
+        con.innerHTML = num++
+    }
+
+    function debounce(func, wait, immediate) {
+        let timeout
+        return function () {
+            let context = this
+            let args = arguments
+            if (timeout) clearTimeout(timeout)
+            if (immediate) {
+                let callNow = !timeout
+                timeout = setTimeout(() => {
+                    timeout = null
+                }, wait)
+                if (callNow) func.apply(context, args)
+            } else {
+                timeout = setTimeout(() => {
+                    func.apply(context, args)
+                }, wait)
+            }
+        }
+    }
+
+    con.onmousemove = debounce(count, 1000)
+</script>
+</body>
+</html>

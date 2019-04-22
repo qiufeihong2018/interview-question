@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #con {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            line-height: 600px;
+            text-align: center;
+            color: #ff0000;
+            background-color: #ffff00;
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+<div id="con">
+</div>
+<script>
+    let num = 1
+    let con = document.getElementById('con')
+
+    function count() {
+        con.innerHTML = num++
+    }
+
+    function throttle(func, wait, type) {
+        if (type === 1) {
+            console.log('css')
+            // 时间戳版：
+            let previous = 0
+            return function () {
+                let now = Date.now()
+                let context = this
+                let args = arguments
+                if (now - previous > wait) {
+                    previous = now
+                    func.apply(context, args)
+                }
+            }
+        } else if (type === 2) {
+            // 定时器版：
+            let timeout
+            return function () {
+                let context = this
+                let args = arguments
+                if (!timeout) {
+                    timeout = setTimeout(() => {
+                        timeout = null
+                        func.apply(context, args)
+                    }, wait)
+                }
+            }
+        }
+    }
+
+    con.onmousemove = throttle(count, 1000, 2)
+</script>
+</body>
+</html>
