@@ -1,4 +1,5 @@
-1. 集合 Set
+# 集合 Set
+
    ES6 新增的一种新的数据结构，类似于数组，但成员是唯一且无序的。
    Set 本身是一种构造函数，用来生成 Set 数据结构。
 
@@ -41,7 +42,7 @@ Set 对象存储原始值或是对象引用的唯一值。
     ![Screenshot from 2019-05-05 11-52-29](https://user-images.githubusercontent.com/36500514/57188141-477b0700-6f2c-11e9-8a97-71ee8961738b.png)                                                                                                                                                                                                                                                                                                                                                
     差集还是有问题的
 
-2. WeakSet
+# WeakSet
    WeakSet 对象允许将弱引用对象储存在一个集合中
    与 Set 的区别：
 
@@ -60,7 +61,7 @@ Set 对象存储原始值或是对象引用的唯一值。
 
   ![Screenshot from 2019-05-05 13-26-05](https://user-images.githubusercontent.com/36500514/57188898-5ae09f00-6f39-11e9-8777-5da20be804da.png)                                                                                                                                                                                                                                                                                                                                                
 
-3. 字典(Map)
+# 字典(Map)
    集合和字典的区别：
 
 - 共同点：集合和字典可以存储不重复的值
@@ -117,7 +118,7 @@ Map 结构的默认遍历器接口（Symbol.iterator 属性），就是 entries 
 
 Map 结构转为数组结构，比较快速的方法是使用扩展运算符（...）。
 
-## 与其他数据结构的相互转换
+与其他数据结构的相互转换
 
 - Map 转 Array
 
@@ -142,7 +143,7 @@ Map 结构转为数组结构，比较快速的方法是使用扩展运算符（.
 
   ![Screenshot from 2019-05-05 14-09-41](https://user-images.githubusercontent.com/36500514/57189292-7189f480-6f3f-11e9-94d9-f942efa999b2.png)                                                                                                                                                                                                                                                            
 
-4. WeakMap
+# WeakMap
    是一组键值对的集合，其中的键是弱引用对象，而值可以是任意的。
    注意，WeakMap 弱引用的只是键名，而不是键值。键值依然是正常引用。
    WeakMap 中，每个键对自己所引用对象的引用都是弱引用，在没有其他引用和该键引用同一对象，这个对象将会被垃圾回收（相应的 key 则变成无效的），所以，WeakMap 的 key 是不可枚举的。
